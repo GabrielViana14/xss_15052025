@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width", initial-scale="1.0">
+<head><title>Reflected XSS</title></head>
+<body>
+  <p>Olá, <span id="usuario"></span></p>
+  <script>
+    const nome = new URLSearchParams(location.search).get("nome");
+    document.getElementById("usuario").innerHTML = nome;
+  </script>
+</body>
+</html>
